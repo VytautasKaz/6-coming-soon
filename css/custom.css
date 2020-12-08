@@ -1,0 +1,14 @@
+/* basic */
+.bg-main-color {
+    background-color: #03A9F4;
+}
+/* hero */
+div.container {
+    padding-bottom: 20px;
+}
+/* main */
+
+/* footer */
+footer.container {
+    padding-top: 0px;
+}
