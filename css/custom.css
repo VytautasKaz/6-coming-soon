@@ -5,6 +5,9 @@
 /* hero */
 .hero.container {
     padding-bottom: 20px;
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-position: center bottom;
 }
 .hero > .short {
     text-align: center;
@@ -37,7 +40,7 @@
     margin-bottom: var(--gap);
 }
 .hero .mouse {
-    margin-bottom: var(--gap);
+
 }
 /* main */
 main h2 {
