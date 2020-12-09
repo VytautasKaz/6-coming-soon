@@ -33,14 +33,32 @@
 .hero .clock {
     margin-bottom: var(--big-gap);
 }
-.hero .sub-form {
+.hero form {
     margin-bottom: var(--gap);
 }
 .hero .mouse {
     margin-bottom: var(--gap);
 }
 /* main */
-
+main h2 {
+    font-size: 20px;
+    color: black;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+main p {
+    font-size: 15px;
+    color: #666666;
+    line-height: 23px;
+    margin-bottom: 20px;
+}
+main p > a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+main p > a:hover {
+    text-decoration: underline;
+}
 /* footer */
 footer.container {
     padding-top: 0;
