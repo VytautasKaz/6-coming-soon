@@ -65,4 +65,44 @@ main p > a:hover {
 /* footer */
 footer.container {
     padding-top: 0;
+    text-align: center;
+}
+footer a {
+    color: white;
+    text-decoration: none;
+}
+footer img {
+    margin-bottom: 20px;
+    height: 40px;
+}
+footer p {
+    display: inline-block;
+    width: 100%;
+    font-size: 17px;
+    line-height: 25px;
+    color: #fff9;
+}
+    footer p > span {
+        padding: 0 10px;
+        position: relative;
+    }
+    footer p > span + span::before {
+        content: '';
+        display: inline-block;
+        height: 15px;
+        width: 1px;
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: -2px;
+        transform: translateY(-50%);
+    }
+@media (max-width: 640px) {
+    footer p > span {
+        display: inline-block;
+        width: 100%;
+    }
+    footer p > span + span::before {
+        display: none;
+    }
 }
