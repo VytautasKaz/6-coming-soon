@@ -1,0 +1,29 @@
+.clock {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 30px;
+    color: white;
+}
+    .clock > .time {
+        display: inline-block;
+        width: 100%;
+    }
+        .clock > .time > .value {
+            display: inline-block;
+            width: 100%;
+            font-size: 40px;
+            line-height: 40px;
+            font-weight: bold;
+        }
+        .clock > .time > .label {
+            display: inline-block;
+            width: 100%;
+            font-size: 12px;
+            line-height: 16px;
+            text-transform: uppercase;
+        }
+@media (max-width: 640px) {
+    .clock {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
