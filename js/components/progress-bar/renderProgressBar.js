@@ -1,6 +1,6 @@
 function renderProgressBar(selector, data) {
     let HTML = '';
-    for (let i = 0; i <data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         const bar = data[i];
         HTML += `<div class="progress-bar">
                     <div class="top">
@@ -14,7 +14,7 @@ function renderProgressBar(selector, data) {
                     </div>
                 </div>`;
     }
-    let DOM = document.querySelector('.left');
+    let DOM = document.querySelector(selector);
     DOM.innerHTML += HTML;
 }
 export {renderProgressBar}
