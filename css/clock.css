@@ -14,6 +14,7 @@
             font-size: 40px;
             line-height: 40px;
             font-weight: bold;
+            font-family: 'Raleway', sans-serif;
         }
         .clock > .time > .label {
             display: inline-block;
