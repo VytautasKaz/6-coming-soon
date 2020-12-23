@@ -6,6 +6,7 @@ function formValidation() {
         const validables = form.querySelectorAll('[data-validation]');
         const submit = form.querySelector('button[type="submit"]');
         const validationResults = [];
+        let validCount = 0;
         submit.addEventListener('click', event => {
             event.preventDefault();
             for (let input of validables) {
@@ -21,9 +22,17 @@ function formValidation() {
                 if (rule === 'message') {
                 results = Validator.isValidMessage();
                 }
-                validation.push(results);
+                validationResults.push(results);
+                if (results === true) {
+                    validCount++;
+                }
+                if (validCount === validables.length) {
+                    console.log('jeigu visi true, siunciam info i serveri');
+                } else {
+                    console.log('israsome klaidas');
+                    console.log(validationResults);
+                }
             }
-            console.log(validationResults);
         })
     }
 }
