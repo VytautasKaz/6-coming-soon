@@ -98,10 +98,10 @@ class Validator {
         for (let i = 0; i < text.length; i++){
             if (text[i] === '@'){
                 atArray.push(text[i]);
+                if (atArray.length > 1 || atArray.length === 0){
+                    return 'Only one @ symbol allowed.';
+                }
             }
-        }
-        if (atArray.length > 1 || atArray.length === 0){
-            return 'Only one @ symbol allowed.';
         }
         return true;
     }
