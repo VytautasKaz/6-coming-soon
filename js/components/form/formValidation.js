@@ -5,22 +5,22 @@ function formValidation() {
     for (let form of forms) {
         const validables = form.querySelectorAll('[data-validation]');
         const submit = form.querySelector('button[type="submit"]');
-        const validationResults = [];
-        let validCount = 0;
         submit.addEventListener('click', event => {
             event.preventDefault();
+            const validationResults = [];
+            let validCount = 0;
             for (let input of validables) {
                 const rule = input.dataset.validation;
-                const text = input.Value;
+                const text = input.value;
                 let results = null;
                 if (rule === 'name') {
-                    results = Validator.isValidName();
+                    results = Validator.isValidName(text);
                 }
                 if (rule === 'email') {
-                    results = Validator.isValidEmail();
+                    results = Validator.isValidEmail(text);
                 }
                 if (rule === 'message') {
-                results = Validator.isValidMessage();
+                    results = Validator.isValidMessage(text);
                 }
                 validationResults.push(results);
                 if (results === true) {

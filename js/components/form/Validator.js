@@ -1,26 +1,41 @@
 class Validator {
     static isValidName(name) {
-        if (Validator.notEmptyString(name) !== true){
-            return Validator.notEmptyString(name);
-        }
-        if (Validator.onlyAlphabet(name) !== true){
-            return Validator.onlyAlphabet(name);
-        }
-        if (Validator.onlyFirstLetterUppercase(name) !== true){
-            return Validator.onlyFirstLetterUppercase(name);
-        }
+        const notEmptyString = Validator.notEmptyString(name);
+        if (notEmptyString !== true) return notEmptyString;
+
+        const onlyAlphabet = Validator.onlyAlphabet(name);
+        if (onlyAlphabet !== true) return onlyAlphabet;
+
+        const onlyFirstLetterUppercase = Validator.onlyFirstLetterUppercase(name);
+        if (onlyFirstLetterUppercase !== true) return onlyFirstLetterUppercase;
+
         return true;
     }
     static isValidEmail(email) {
-        if (Validator.notEmptyString(email) !== true){
-            return Validator.notEmptyString(email);
-        }
+        const notEmptyString = Validator.notEmptyString(email);
+        if (notEmptyString !== true) return notEmptyString;
+
+        const minEmailCharAmount = Validator.minEmailCharAmount(email);
+        if (minEmailCharAmount !== true) return minEmailCharAmount;
+
+        const onlyOneAt = Validator.onlyOneAt(email);
+        if (onlyOneAt !== true) return onlyOneAt;
+
+        const charsPreAtSymbol = Validator.charsPreAtSymbol(email);
+        if (charsPreAtSymbol !== true) return charsPreAtSymbol;
+
+        const charsAfterAtSymbol = Validator.charsAfterAtSymbol(email);
+        if (charsAfterAtSymbol !== true) return charsAfterAtSymbol;
+
         return true;
     }
     static isValidMessage(message) {
-        if (Validator.notEmptyString(message) !== true){
-            return Validator.notEmptyString(message);
-        }
+        const notEmptyString = Validator.notEmptyString(message);
+        if (notEmptyString !== true) return notEmptyString;
+        
+        const exceedsChar = Validator.exceedsChar(message);
+        if (exceedsChar !== true) return exceedsChar;
+
         return true;
     }
     static notEmptyString(text) {
@@ -63,6 +78,53 @@ class Validator {
         // let capitalize = text.replace(lower[0], lower[0].toUpperCase());
         if (text !== capitalize) {
             return 'First letter has to be uppercase, every other - lowercase.';
+        }
+        return true;
+    }
+    static exceedsChar(text){
+        if (text.length > 1000){
+            return 'Message cannot exceed 1000 characters.';
+        }
+        return true;
+    }
+    static minEmailCharAmount(text){
+        if (text.length < 6){
+            return 'E-mail cannot be shorter than 6 characters.';
+        }
+        return true;
+    }
+    static onlyOneAt(text){
+        let atArray = [];
+        for (let i = 0; i < text.length; i++){
+            if (text[i] === '@'){
+                atArray.push(text[i]);
+            }
+        }
+        if (atArray.length > 1 || atArray.length === 0){
+            return 'Only one @ symbol allowed.';
+        }
+        return true;
+    }
+    static charsPreAtSymbol(text){
+        let textArray = [];
+        for (let i = 0; i < text.length; i++){
+            if (text[i] !== '@'){
+                textArray.push(text[i]);
+            } else {
+                break;
+            }
+        }
+        if (textArray.length < 1){
+            return 'Email address has to contain a name.';
+        }
+        return true;
+    }
+    static charsAfterAtSymbol(text){
+        let charsAfter = [];
+        charsAfter.push(text.slice(text.indexOf('@')));
+        let charsArray = charsAfter.toString().split('');
+        if ((charsArray.length - 1) < 4){
+            return 'There has to be at least 4 characters after @ symbol.';
         }
         return true;
     }
