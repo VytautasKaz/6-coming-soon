@@ -120,8 +120,7 @@ class Validator {
         return true;
     }
     static charsAfterAtSymbol(text){
-        let charsAfter = [];
-        charsAfter.push(text.slice(text.indexOf('@')));
+        let charsAfter = text.slice(text.indexOf('@'));
         let charsArray = charsAfter.toString().split('');
         if ((charsArray.length - 1) < 4){
             return 'There has to be at least 4 characters after @ symbol.';
