@@ -36,11 +36,14 @@
 .hero .clock {
     margin-bottom: var(--big-gap);
 }
-.hero form {
-    margin-bottom: var(--gap);
+.hero .form {
+    width: 80%;
+    margin: 0 10% var(--gap);
 }
-.hero .mouse {
-
+.hero .form > .input {
+    background-color: transparent;
+    color: white;
+    border-color: white;
 }
 /* main */
 main h2 {
@@ -61,6 +64,9 @@ main p > a {
 }
 main p > a:hover {
     text-decoration: underline;
+}
+main .form > button {
+    float: right;
 }
 /* footer */
 footer.container {
@@ -122,5 +128,18 @@ footer p {
     }
     footer p > span + span::before {
         display: none;
+    }
+    .hero .form {
+        width: 100%;
+        margin: 0 0 var(--gap);
+    }
+}
+@media (min-width: 1200px) {
+    main .form > input.input {
+        width: 47%;
+        float: left;
+    }
+    main .form > input.input + input.input {
+        margin-left: 6px;
     }
 }
