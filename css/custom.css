@@ -8,9 +8,11 @@
     background-image: url(../img/background.jpg);
     background-size: cover;
     background-position: center bottom;
+    height: 100vh;
 }
 .hero > .short {
     text-align: center;
+    margin-top: 100px;
 }
 .hero img {
     height: 30px;
